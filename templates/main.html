@@ -5,33 +5,68 @@
     	{% block extraMeta %}{% endblock %}
     	
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/bp/screen.css" type="text/css" media="screen, projection"/>
-		<link rel="stylesheet" href="{{ MEDIA_URL }}css/bp/rtl.css" type="text/css" media="screen, projection"/>
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/bp/print.css" type="text/css" media="print"/>
 		<!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL }}css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
+		<link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css" media="print"/>
         {% block extraCSS %}{% endblock %}
         
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}js/base.js"></script>
         {% block extraJS %}{% endblock %}
         
-        <title>{% block baseTitle %}Hello{% endblock %}{% block extraTitle %}{% endblock %}</title>
+        <title>{% block baseTitle %}Top7 Foozball League{% endblock %}{% block extraTitle %}{% endblock %}</title>
     </head>
 
     <body class="fullDoc">
         <div id="fullWidthContainer" class="container">
 	        {% block header %}
-	        	<h1>שלום</h1>
+	        	<h1>Top7 Foosball League</h1>
 	        {% endblock %}
 	        
-	        <div id="content" class="span-24 last">
-	        {% block contentArea %}
-				<h2>לורם איפסום...</h2>
-	        {% endblock %}
+	        <div id="content" class="span-12 last">
+				<h2>Games</h2>
+		        {% block contentArea %}
+				{% for m in matches%}
+					<h3>{{ m }}</h3>
+				{% endfor %}
+		        {% endblock %}
 	        </div>
+	
+			<div id="content" class="span-12 last">
+				<h2>New Match</h2>
+				<form method="post" action="/match/">
+					<select name="p1">
+							<option value=" "> </option>
+						{% for p in players %}
+							<option value="{{ p.id }}">{{ p }}</option>
+						{% endfor %}
+					</select>
+					<select name="p2">
+							<option value=" "> </option>
+						{% for p in players %}
+							<option value="{{ p.id }}">{{ p }}</option>
+						{% endfor %}
+					</select>
+					<select name="p3">
+							<option value=" "> </option>
+						{% for p in players %}
+							<option value="{{ p.id }}">{{ p }}</option>
+						{% endfor %}
+					</select>
+					<select name="p4">
+							<option value=" "> </option>
+						{% for p in players %}
+							<option value="{{ p.id }}">{{ p }}</option>
+						{% endfor %}
+					</select>
+					<input type="text" name="s1" width="5"/>
+					<input type="text" name="s2" width="5"/>
+					<input type="submit">
+				</form>
+			</div>
 	        
 	        <div id="footer" class="span-24 last">
 	        {% block footer %}
-	        	<p>- סוף -</p>
 	        {% endblock %}
 	        </div>
 		</div>
