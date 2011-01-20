@@ -7,74 +7,112 @@
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/bp/screen.css" type="text/css" media="screen, projection"/>
 		<link rel="stylesheet" href="{{ MEDIA_URL }}css/bp/print.css" type="text/css" media="print"/>
 		<!--[if IE]><link rel="stylesheet" href="{{ MEDIA_URL }}css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
-		<link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css" media="print"/>
+		<link rel="stylesheet" href="{{ MEDIA_URL }}css/base.css" type="text/css" media="screen"/>
         {% block extraCSS %}{% endblock %}
         
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
         <script type="text/javascript" src="{{ MEDIA_URL }}js/base.js"></script>
         {% block extraJS %}{% endblock %}
         
-        <title>{% block baseTitle %}Top7 Foozball League{% endblock %}{% block extraTitle %}{% endblock %}</title>
+        <title>{% block baseTitle %}Top7 Foosball League{% endblock %}{% block extraTitle %}{% endblock %}</title>
     </head>
 
     <body class="fullDoc">
         <div id="fullWidthContainer" class="container">
 	        {% block header %}
-	        	<h1>Top7 Foosball League</h1>
+				<div id="header" class="span-24 last">
+					<div id="title" class="span-18">
+		        		<img src="http://top7.com/css/layout/ui-assets/homepage/logoOnly.png"/>
+						<h1 id="title">Foosball League</h1>
+					</div>
+					<div id="headpic" class="span-6 last">
+						<img src="{{ MEDIA_URL }}img/foos.jpg"/>
+					</div>
+				</div>
 	        {% endblock %}
 	        
-	        <div id="matches" class="span-12 last">
-				<h2>Games</h2>
+	        <div id="matches" class="span-15">
+				<h2>Latest Games</h2>
+				<hr/>
 		        {% block contentArea %}
-				<table>
 				{% for m in matches%}
-					<tr>
-						<td>{{ m.player1 }}</td>
-						<td>{{ m.player2 }}</td>
-						<td>{{ m.player3 }}</td>
-						<td>{{ m.player4 }}</td>
-						<td>{{ m.score1 }}</td>
-						<td>{{ m.score2 }}</td>
-						<td>{{ m.date }}</td>
-					</tr>
+					<div class="match">
+						<div class="scores span-10 last">
+							<div class="side_a span-3">
+								<span class="player">{{ m.player1 }}</span><br/>
+								<span class="player">{{ m.player3|default:'' }}</span>
+							</div>
+						
+							<div class="score_a span-2">
+								<span class="score">{{ m.score1 }}</span>
+							</div>
+							<div class="score_b span-2">
+								<span class="score">{{ m.score2 }}</span>
+							</div>
+							
+							<div class="side_b span-3 last">
+								<span class="player">{{ m.player2 }}</span><br/>
+								<span class="player">{{ m.player4|default:'' }}</span>
+							</div>
+						</div>
+						<div class="metadata span-10 last">
+							<span class="date">{{ m.date|date:'H:m, d M Y' }}</span>
+							<span class="comment">{{ m.comment }}</span>
+						</div>
+					</div>
 				{% endfor %}
-				</table>
 		        {% endblock %}
 	        </div>
 	
-			<div id="newmatch" class="span-12 last">
+			<div id="newmatch" class="span-8 last">
 				<h2>New Match</h2>
+				<hr/>
 				<form method="post" action="/match/">
-					<select name="p1">
-							<option value=" "> </option>
-						{% for p in players %}
-							<option value="{{ p.id }}">{{ p }}</option>
-						{% endfor %}
-					</select>
-					<select name="p2">
-							<option value=" "> </option>
-						{% for p in players %}
-							<option value="{{ p.id }}">{{ p }}</option>
-						{% endfor %}
-					</select>
-					<select name="p3">
-							<option value=" "> </option>
-						{% for p in players %}
-							<option value="{{ p.id }}">{{ p }}</option>
-						{% endfor %}
-					</select>
-					<select name="p4">
-							<option value=" "> </option>
-						{% for p in players %}
-							<option value="{{ p.id }}">{{ p }}</option>
-						{% endfor %}
-					</select>
-					<input type="text" name="s1" width="5"/>
-					<input type="text" name="s2" width="5"/>
-					<input type="submit">
+					<div class="span-4">
+						<label>Player(s):</label><br/>
+						<select name="p1">
+								<option value=" "> </option>
+							{% for p in players %}
+								<option value="{{ p.id }}">{{ p }}</option>
+							{% endfor %}
+						</select>
+						<select name="p3">
+								<option value=" "> </option>
+							{% for p in players %}
+								<option value="{{ p.id }}">{{ p }}</option>
+							{% endfor %}
+						</select>
+						<label>Score:</label><br/>
+						<input type="text" name="s1" width="5"/>
+					</div>
+					<div class="span-4 last">
+						<label>Player(s):</label><br/>
+						<select name="p2">
+								<option value=" "> </option>
+							{% for p in players %}
+								<option value="{{ p.id }}">{{ p }}</option>
+							{% endfor %}
+						</select>
+						<select name="p4">
+								<option value=" "> </option>
+							{% for p in players %}
+								<option value="{{ p.id }}">{{ p }}</option>
+							{% endfor %}
+						</select>
+						<label>Score:</label><br/>
+						<input type="text" name="s2" width="5"/>
+					</div>
+					
+					
+					<input type="submit" value="Submit">
 				</form>
 			</div>
-	        
+			<div id="standigs" class="span-8 last">
+				<h2>Standings</h2>
+				<hr/>
+				<p>Coming soon!</p>
+			</div>
+	        <hr>
 	        <div id="footer" class="span-24 last">
 	        {% block footer %}
 	        {% endblock %}

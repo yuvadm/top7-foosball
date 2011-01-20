@@ -1,0 +1,45 @@
+#headpic {
+    text-align: right;
+}
+
+#newmatch {
+    background-color: #B5CFFF;
+    padding: 10px;
+}
+
+#matches {
+    padding: 10px;
+}
+
+.match {
+    height: 120px;
+}
+
+#title {
+    display: inline;
+}
+
+.side_a {
+    text-align: right;
+}
+
+.score_a {
+    text-align: center;
+}
+
+.score_b {
+    text-align: center;
+}
+
+.player {
+    font-size: 1.4em;
+}
+
+.score {
+    font-size: 2em;
+    vertical-align: top;
+}
+
+.metadata {
+    text-align: center;
+}
