@@ -1,0 +1,11 @@
+Prerequisites for setting up a generic project:
+-----------------------------------------------
+
+1. easy_install pip
+2. pip install virtualenv
+3. pip install virtualenvwrapper
+4. source /usr/local/bin/virtualenvwrapper.sh (possibly add to .bash_profile)
+5. mkvirtualenv --distribute proj_name
+6. ./bootstrap.py
+7. ./manage.py syncdb
+8. ./manage.py runserver
