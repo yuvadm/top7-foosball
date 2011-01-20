@@ -6,9 +6,9 @@ from django.conf import settings
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', 'generic_django.main.views.index'),
+    (r'^$', 'fooz.main.views.index'),
     # Example:
-    # (r'^generic_django/', include('generic_django.foo.urls')),
+    # (r'^fooz/', include('fooz.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),

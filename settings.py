@@ -67,7 +67,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
-ROOT_URLCONF = 'generic_django.urls'
+ROOT_URLCONF = 'fooz.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
@@ -89,6 +89,6 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'generic_django.main',
+    'fooz.main',
 )
 
