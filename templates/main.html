@@ -23,16 +23,26 @@
 	        	<h1>Top7 Foosball League</h1>
 	        {% endblock %}
 	        
-	        <div id="content" class="span-12 last">
+	        <div id="matches" class="span-12 last">
 				<h2>Games</h2>
 		        {% block contentArea %}
+				<table>
 				{% for m in matches%}
-					<h3>{{ m }}</h3>
+					<tr>
+						<td>{{ m.player1 }}</td>
+						<td>{{ m.player2 }}</td>
+						<td>{{ m.player3 }}</td>
+						<td>{{ m.player4 }}</td>
+						<td>{{ m.score1 }}</td>
+						<td>{{ m.score2 }}</td>
+						<td>{{ m.date }}</td>
+					</tr>
 				{% endfor %}
+				</table>
 		        {% endblock %}
 	        </div>
 	
-			<div id="content" class="span-12 last">
+			<div id="newmatch" class="span-12 last">
 				<h2>New Match</h2>
 				<form method="post" action="/match/">
 					<select name="p1">
