@@ -63,54 +63,55 @@
 				{% endfor %}
 		        {% endblock %}
 	        </div>
-	
-			<div id="newmatch" class="span-8 last">
-				<h2>New Match</h2>
-				<hr/>
-				<form method="post" action="/match/">
-					<div class="span-4">
-						<label>Player(s):</label><br/>
-						<select name="p1">
-								<option value=" "> </option>
-							{% for p in players %}
-								<option value="{{ p.id }}">{{ p }}</option>
-							{% endfor %}
-						</select>
-						<select name="p3">
-								<option value=" "> </option>
-							{% for p in players %}
-								<option value="{{ p.id }}">{{ p }}</option>
-							{% endfor %}
-						</select>
-						<label>Score:</label><br/>
-						<input type="text" name="s1" width="5"/>
-					</div>
-					<div class="span-4 last">
-						<label>Player(s):</label><br/>
-						<select name="p2">
-								<option value=" "> </option>
-							{% for p in players %}
-								<option value="{{ p.id }}">{{ p }}</option>
-							{% endfor %}
-						</select>
-						<select name="p4">
-								<option value=" "> </option>
-							{% for p in players %}
-								<option value="{{ p.id }}">{{ p }}</option>
-							{% endfor %}
-						</select>
-						<label>Score:</label><br/>
-						<input type="text" name="s2" width="5"/>
-					</div>
+			<div id="sidebar" class="span-8 last">
+				<div id="newmatch" class="span-8 last">
+					<h2>New Match</h2>
+					<hr/>
+					<form method="post" action="/match/">
+						<div class="span-4">
+							<label>Player(s):</label><br/>
+							<select name="p1">
+									<option value=" "> </option>
+								{% for p in players %}
+									<option value="{{ p.id }}">{{ p }}</option>
+								{% endfor %}
+							</select>
+							<select name="p3">
+									<option value=" "> </option>
+								{% for p in players %}
+									<option value="{{ p.id }}">{{ p }}</option>
+								{% endfor %}
+							</select>
+							<label>Score:</label><br/>
+							<input type="text" name="s1" width="5"/>
+						</div>
+						<div class="span-4 last">
+							<label>Player(s):</label><br/>
+							<select name="p2">
+									<option value=" "> </option>
+								{% for p in players %}
+									<option value="{{ p.id }}">{{ p }}</option>
+								{% endfor %}
+							</select>
+							<select name="p4">
+									<option value=" "> </option>
+								{% for p in players %}
+									<option value="{{ p.id }}">{{ p }}</option>
+								{% endfor %}
+							</select>
+							<label>Score:</label><br/>
+							<input type="text" name="s2" width="5"/>
+						</div>
 					
 					
-					<input type="submit" value="Submit">
-				</form>
-			</div>
-			<div id="standigs" class="span-8 last">
-				<h2>Standings</h2>
-				<hr/>
-				<p>Coming soon!</p>
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+				<div id="standigs" class="span-8 last">
+					<h2>Standings</h2>
+					<hr/>
+					<p>Coming soon!</p>
+				</div>
 			</div>
 	        <hr>
 	        <div id="footer" class="span-24 last">
