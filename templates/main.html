@@ -37,25 +37,44 @@
 		        {% block contentArea %}
 				{% for m in matches%}
 					<div class="match">
-						<div class="scores span-10 last">
-							<div class="side_a span-3">
+						<div class="scores span-14 last">
+
+							<div class="span-2">
+								{% if m.player3 %}<img src="http://top7.com/css/images/us/{{ m.player3|lower }}.jpg" ">{% else %}<span style="opacity: 0;">bla</span>{% endif %}
+							</div>
+
+							<div class="span-2">
+								<img src="http://top7.com/css/images/us/{{ m.player1|lower }}.jpg" ">
+							</div>
+
+							<div class="side_a span-2">
 								<span class="player">{{ m.player1 }}</span><br/>
+								
 								<span class="player">{{ m.player3|default:'' }}</span>
 							</div>
 						
-							<div class="score_a span-2">
+							<div class="score_a span-1">
 								<span class="score">{{ m.score1 }}</span>
 							</div>
-							<div class="score_b span-2">
+							<div class="score_b span-1">
 								<span class="score">{{ m.score2 }}</span>
 							</div>
 							
-							<div class="side_b span-3 last">
+							<div class="side_b span-2">
 								<span class="player">{{ m.player2 }}</span><br/>
 								<span class="player">{{ m.player4|default:'' }}</span>
+							</div>							
+
+							<div class="span-2" style="text-align: right"s>
+								<img src="http://top7.com/css/images/us/{{ m.player2|lower }}.jpg" ">
 							</div>
+
+							<div class="span-2 last">
+								{% if m.player4 %}<img src="http://top7.com/css/images/us/{{ m.player4|lower }}.jpg" ">{% else %}<span style="opacity: 0;">bla</span>{% endif %}
+							</div>
+
 						</div>
-						<div class="metadata span-10 last">
+						<div class="metadata span-14 last">
 							<span class="date">{{ m.date|date:'H:i, d M Y' }}</span>
 							<span class="comment">{{ m.comment }}</span>
 						</div>
