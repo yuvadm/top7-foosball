@@ -15,6 +15,13 @@
     height: 120px;
 }
 
+.pic {
+    padding: 1px;
+    border: 1px solid #AAA;
+    width: 75px;
+    height: 75px;
+}
+
 #title {
     display: inline;
 }

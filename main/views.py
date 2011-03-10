@@ -9,7 +9,7 @@ from random import randint
 import json
 
 def index(request):
-    matches = Match.objects.all().order_by('-date')[0:5]
+    matches = Match.objects.all().order_by('-date')[0:7]
     players = Player.objects.all().order_by('name')
     return render_to_response('main.html', {'matches' : matches, 'players' : players}, context_instance=RequestContext(request))
 
