@@ -7,7 +7,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'fooz.main.views.index'),
+    (r'^h2h/(\d)/(\d)/$', 'fooz.main.views.headToHead'),
     (r'^match/$', 'fooz.main.views.match'),
+
     # Example:
     # (r'^fooz/', include('fooz.foo.urls')),
 

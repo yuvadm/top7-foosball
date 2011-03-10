@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -10,6 +11,13 @@ import json
 
 def index(request):
     matches = Match.objects.all().order_by('-date')[0:7]
+    players = Player.objects.all().order_by('name')
+    return render_to_response('main.html', {'matches' : matches, 'players' : players}, context_instance=RequestContext(request))
+
+def headToHead(request, p1, p2):
+    matches = Match.objects.filter( (Q(player1=p1) | Q(player2=p1) | Q(player3=p1) | Q(player4=p1)) 
+                                  & (Q(player1=p2) | Q(player2=p2) | Q(player3=p2) | Q(player4=p2)) )
+
     players = Player.objects.all().order_by('name')
     return render_to_response('main.html', {'matches' : matches, 'players' : players}, context_instance=RequestContext(request))
 
